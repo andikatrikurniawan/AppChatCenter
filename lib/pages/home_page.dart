@@ -2,6 +2,7 @@ import 'package:app_chat/tabs/biodata_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:app_chat/tabs/chat_tab.dart';
 import 'package:app_chat/tabs/perhitungan_tab.dart';
+import 'package:app_chat/tabs/input_tab.dart';
 
 class HomePage extends StatelessWidget { 
   const HomePage({super.key});
@@ -21,9 +22,13 @@ class HomePage extends StatelessWidget {
                 text: "BIODATA",
                 icon: Icon(Icons.email),
               ),
+              Tab(
+                text: "INPUT",
+                icon: Icon(Icons.input),
+              ),
             ];
     return DefaultTabController(
-      length: 3,
+      length: 4,
       child: Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.amber,
@@ -87,6 +92,7 @@ class HomePage extends StatelessWidget {
             ChatTab(),
             PerhitunganTabs(),
             BiodataTab(),
+            InputTab(),
           ],
         ),    
     ),
