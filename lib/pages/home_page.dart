@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:app_chat/tabs/chat_tab.dart';
 import 'package:app_chat/tabs/perhitungan_tab.dart';
 import 'package:app_chat/tabs/input_tab.dart';
+import '../tabs/dialog_tab.dart';
+import '../tabs/snack_bar.dart';
 
 class HomePage extends StatelessWidget { 
   const HomePage({super.key});
@@ -26,9 +28,17 @@ class HomePage extends StatelessWidget {
                 text: "INPUT",
                 icon: Icon(Icons.input),
               ),
+              Tab(
+                text: "Dialog",
+                icon: Icon(Icons.account_box),
+              ),
+              Tab(
+                text: "SnckBar",
+                icon: Icon(Icons.save),
+              ),
             ];
     return DefaultTabController(
-      length: 4,
+      length: 6,
       child: Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.amber,
@@ -40,6 +50,7 @@ class HomePage extends StatelessWidget {
           title: Text("PartnerSupport Center",
               style: TextStyle(
                 color: Colors.cyanAccent,
+                fontSize: 12,
               ),
               ),
             //Mengunakan Action dan Bottom
@@ -48,7 +59,7 @@ class HomePage extends StatelessWidget {
                 color: Colors.brown,
                 hoverColor: Colors.amberAccent,
                 icon : Icon(Icons.person,
-                size: 50,
+                size: 30,
               ),
               onPressed: () {
                 // print("Tombol Person Di Tekan");
@@ -58,7 +69,7 @@ class HomePage extends StatelessWidget {
                 color: Colors.deepOrange,
                 hoverColor: Colors.amberAccent,
                 icon : Icon(Icons.logout,
-                size: 50,
+                size: 30,
               ),
               onPressed: () {
                 // print("Tombol Logout Di Tekan");
@@ -68,6 +79,10 @@ class HomePage extends StatelessWidget {
             bottom: TabBar(
               labelColor: Colors.cyanAccent,
               unselectedLabelColor: Colors.black,
+              labelStyle: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.bold,
+              ),
               
               indicator: BoxDecoration(  
                 // boxShadow: [
@@ -81,6 +96,7 @@ class HomePage extends StatelessWidget {
                 ),
                 // borderRadius: BorderRadius.circular(50),
               ),
+              isScrollable: false,
               tabs: myTab,
             ),
             // flexibleSpace: Container(
@@ -88,13 +104,15 @@ class HomePage extends StatelessWidget {
             // ),
             ),
         body: TabBarView(
-          children: [
-            ChatTab(),
-            PerhitunganTabs(),
-            BiodataTab(),
-            InputTab(),
-          ],
-        ),    
+        children: const [
+          ChatTab(),
+          PerhitunganTabs(),
+          BiodataTab(),
+          InputTab(),
+          DialogTab(),
+          Snackbar(),
+        ],
+      ),    
     ),
     );
   }

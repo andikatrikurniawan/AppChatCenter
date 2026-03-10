@@ -10,15 +10,15 @@ class ChatItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(title.toString()),
-      subtitle: Text(subTitle.toString(),
+      title: Text(title ?? ""),
+      subtitle: Text(subTitle ?? "",
         maxLines: 2,
         overflow: TextOverflow.ellipsis,
       ),
       leading: CircleAvatar(
-        backgroundImage: NetworkImage(imageUrl.toString()),
+        backgroundImage: NetworkImage(imageUrl ?? ""),
       ),
-      trailing: Text(time.toString()),
+      trailing: Text(time ?? ""),
       dense: true,
     );
   }
