@@ -85,6 +85,7 @@ class _InputTabState extends State<InputTab> {
                 // cursorWidth: 5,
                 //Menggunakan Huruf besa pada awal kalimat
                 textCapitalization: TextCapitalization.words,
+                textInputAction:TextInputAction.next,
                 decoration: InputDecoration(
                   icon:Icon(
                     Icons.email_sharp,

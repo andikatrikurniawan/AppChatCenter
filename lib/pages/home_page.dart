@@ -5,12 +5,15 @@ import 'package:app_chat/tabs/perhitungan_tab.dart';
 import 'package:app_chat/tabs/input_tab.dart';
 import '../tabs/dialog_tab.dart';
 import '../tabs/snack_bar.dart';
+import '../tabs/dropdown_tab.dart';
+import '../tabs/bottom_navigation.dart';
 
 class HomePage extends StatelessWidget { 
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
     List<Tab> myTab = [
               Tab(
                 text: "CHATT",
@@ -36,21 +39,34 @@ class HomePage extends StatelessWidget {
                 text: "SnckBar",
                 icon: Icon(Icons.save),
               ),
+              Tab(
+                text: "DroopDown",
+                icon: Icon(Icons.shop),
+              ),
+              Tab(
+                text: "BottomNavigatioBar",
+                icon: Icon(Icons.navigation),
+              ),
             ];
     return DefaultTabController(
-      length: 6,
+      length: myTab.length,
       child: Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.amber,
           // centerTitle: true,
-          leading: Padding(
-            padding: EdgeInsets.all(4), 
-            child: Image.asset('image/logo sepatu.png'),
-          ),
+           leading: Padding(
+              padding: EdgeInsets.all(4),
+              child: Image.asset(
+                'image/logo sepatu.png',
+                width: 30,
+                height: 30,
+                fit: BoxFit.contain,
+              ),
+        ),
           title: Text("PartnerSupport Center",
               style: TextStyle(
                 color: Colors.cyanAccent,
-                fontSize: 12,
+                fontSize: screenWidth < 600 ? 12 : 18,
               ),
               ),
             //Mengunakan Action dan Bottom
@@ -96,7 +112,7 @@ class HomePage extends StatelessWidget {
                 ),
                 // borderRadius: BorderRadius.circular(50),
               ),
-              isScrollable: false,
+              isScrollable:true,
               tabs: myTab,
             ),
             // flexibleSpace: Container(
@@ -111,6 +127,8 @@ class HomePage extends StatelessWidget {
           InputTab(),
           DialogTab(),
           Snackbar(),
+          DropdownTab(),
+          BottomNavigationTabs(),
         ],
       ),    
     ),
