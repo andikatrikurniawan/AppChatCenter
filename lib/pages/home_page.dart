@@ -7,6 +7,7 @@ import '../tabs/dialog_tab.dart';
 import '../tabs/snack_bar.dart';
 import '../tabs/dropdown_tab.dart';
 import '../tabs/bottom_navigation.dart';
+import '../tabs/bottom_sheet.dart';
 
 class HomePage extends StatelessWidget { 
   const HomePage({super.key});
@@ -46,6 +47,10 @@ class HomePage extends StatelessWidget {
               Tab(
                 text: "BottomNavigatioBar",
                 icon: Icon(Icons.navigation),
+              ),
+               Tab(
+                text: "BottomSheet",
+                icon: Icon(Icons.night_shelter),
               ),
             ];
     return DefaultTabController(
@@ -129,6 +134,7 @@ class HomePage extends StatelessWidget {
           Snackbar(),
           DropdownTab(),
           BottomNavigationTabs(),
+          BottomSheetTabs(),
         ],
       ),    
     ),

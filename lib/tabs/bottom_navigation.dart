@@ -40,6 +40,7 @@ class _BottomNavigationTabsState extends State<BottomNavigationTabs> {
       },
       items: [
         BottomNavigationBarItem(
+          
           icon: Icon(Icons.home),
           label: "Home",
           ),
